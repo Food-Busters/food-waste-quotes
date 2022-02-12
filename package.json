@@ -1,6 +1,7 @@
 {
   "name": "food-waste-quotes",
-  "version": "1.0.13",
+  "version": "1.0.14",
+  "description": "Quotes that will encourage you to not make food waste | Part of Prototype of Food Busters",
   "private": true,
   "scripts": {
     "dev": "yarn lm-config && vite --port $PORT",
