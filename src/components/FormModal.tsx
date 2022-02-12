@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Modal } from "react-bootstrap";
+import { AvailableImages, AvailableImagesValue } from "../models/Quote";
 
 import "./FormModal.scss";
 
@@ -10,10 +11,16 @@ export default function FormModal({
 }: {
   show: boolean;
   onHide: () => void;
-  onSubmit: (quote: string, lang: string, count: number) => Promise<void>;
+  onSubmit: (
+    quote: string,
+    lang: string,
+    image: AvailableImages,
+    count: number
+  ) => Promise<void>;
 }) {
   const [quote, setQuote] = useState("");
   const [lang, setLang] = useState("en");
+  const [image, setImage] = useState<AvailableImages>(AvailableImagesValue[0]);
   const [count, setCount] = useState(0);
 
   return (
@@ -31,7 +38,7 @@ export default function FormModal({
           __PARAM__ will be replaced by 'count' proportional to amount of food
           left
         </p>
-        <hr />
+        <hr className="mb-0" />
         <label className="form-label fw-bold">Quote</label>
         <textarea
           className="form-control"
@@ -44,6 +51,15 @@ export default function FormModal({
         >
           <option value="en">English</option>
           <option value="th">Thai</option>
+        </select>
+        <label className="form-label fw-bold">Image</label>
+        <select
+          className="form-select"
+          onChange={(e) => setImage(e.target.value as AvailableImages)}
+        >
+          {AvailableImagesValue.map((img) => (
+            <option value={img}>{img}</option>
+          ))}
         </select>
         <label className="form-label fw-bold">Count</label>
         <input
@@ -59,7 +75,7 @@ export default function FormModal({
           className="btn btn-success"
           onClick={() => {
             onHide();
-            onSubmit(quote, lang, count);
+            onSubmit(quote.trim(), lang, image, count);
           }}
           disabled={!(quote.length && quote.includes("__PARAM__") && count)}
         >

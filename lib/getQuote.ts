@@ -14,6 +14,7 @@ export async function getQuote(
   return {
     quote: quote.quote.replace("__PARAM__", count.toString()),
     lang: quote.lang,
+    image: quote.image,
   };
 }
 
@@ -28,6 +29,7 @@ export async function getAllQuotes(): Promise<Quote[]> {
       lang: data.lang,
       quote: data.quote,
       count: data.count,
+      image: data.image,
       created_at: data.created_at,
     });
   });

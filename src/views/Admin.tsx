@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 
 import { getAllQuote } from "../utils/Quote";
-import { Quote } from "../models/Quote";
+import { AvailableImages, Quote } from "../models/Quote";
 
 import AdminModal from "../components/AdminModal";
 import FormModal from "../components/FormModal";
@@ -60,11 +60,17 @@ export default function Admin() {
     setAlertContent("");
   }
 
-  async function handleNewQuote(quote: string, lang: string, count: number) {
+  async function handleNewQuote(
+    quote: string,
+    lang: string,
+    image: AvailableImages,
+    count: number
+  ) {
     try {
       await axios.post("/api/addquote", {
         quote,
         lang,
+        image,
         count,
         password: localStorage.getItem("password"),
       });
@@ -119,6 +125,7 @@ export default function Admin() {
           <tr className="table-secondary">
             <th>Language</th>
             <th>Quotes</th>
+            <th>Image</th>
             <th>Count</th>
             <th>Actions</th>
           </tr>
@@ -128,6 +135,7 @@ export default function Admin() {
             <tr key={index}>
               <td>{quote.lang}</td>
               <td>{quote.quote}</td>
+              <td>{quote.image}</td>
               <td>{quote.count}</td>
               <td className="d-flex flex-row justify-content-around">
                 <button

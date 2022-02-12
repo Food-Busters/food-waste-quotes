@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Modal } from "react-bootstrap";
-import { useHistory } from "react-router";
+import { useNavigate } from "react-router";
 
 import "./AdminModal.scss";
 
@@ -13,12 +13,12 @@ export default function AdminModal({
   submitPassword: (password: string) => () => void;
   errorMsg?: string;
 }) {
-  const history = useHistory();
+  const navigate = useNavigate();
 
   const [password, setPassword] = useState("");
 
   function goHome() {
-    history.replace("/");
+    navigate("/");
   }
 
   return (
