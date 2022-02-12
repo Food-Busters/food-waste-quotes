@@ -8,6 +8,7 @@ import AdminModal from "../components/AdminModal";
 import FormModal from "../components/FormModal";
 import DeleteModal from "../components/DeleteModal";
 import Alert from "../components/Alert";
+import { howFar } from "../utils/time";
 
 export default function Admin() {
   const [quotes, setQuotes] = useState<Quote[]>([]);
@@ -127,6 +128,7 @@ export default function Admin() {
             <th>Quotes</th>
             <th>Image</th>
             <th>Count</th>
+            <th>Created At</th>
             <th>Actions</th>
           </tr>
         </thead>
@@ -137,6 +139,7 @@ export default function Admin() {
               <td>{quote.quote}</td>
               <td>{quote.image}</td>
               <td>{quote.count}</td>
+              <td title={quote.created_at}>{howFar(quote.created_at)}</td>
               <td className="d-flex flex-row justify-content-around">
                 <button
                   className="btn btn-danger"

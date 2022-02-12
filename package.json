@@ -1,6 +1,6 @@
 {
   "name": "food-waste-quotes",
-  "version": "1.0.14",
+  "version": "1.0.15",
   "description": "Quotes that will encourage you to not make food waste | Part of Prototype of Food Busters",
   "private": true,
   "scripts": {
@@ -43,6 +43,7 @@
     "@vitejs/plugin-react": "^1.2.0",
     "eslint": "^8.9.0",
     "eslint-plugin-react": "^7.28.0",
+    "prettier": "^2.5.1",
     "sass": "^1.49.7",
     "typescript": "^4.5.5",
     "vite": "^2.8.1"
