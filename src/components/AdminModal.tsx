@@ -29,6 +29,7 @@ export default function AdminModal({
         </Modal.Title>
       </Modal.Header>
       <Modal.Body>
+        <img src="bruh.webp" className="mb-2" width="466px" height="466px" />
         {(errorMsg ?? "").length > 0 && (
           <p className="text-danger">{errorMsg}</p>
         )}

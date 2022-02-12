@@ -1,6 +1,6 @@
 {
   "name": "food-waste-quotes",
-  "version": "1.0.15",
+  "version": "1.0.16",
   "description": "Quotes that will encourage you to not make food waste | Part of Prototype of Food Busters",
   "private": true,
   "scripts": {
