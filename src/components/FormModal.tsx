@@ -58,7 +58,9 @@ export default function FormModal({
           onChange={(e) => setImage(e.target.value as AvailableImages)}
         >
           {AvailableImagesValue.map((img) => (
-            <option value={img}>{img}</option>
+            <option value={img} key={img}>
+              {img}
+            </option>
           ))}
         </select>
         <label className="form-label fw-bold">Count</label>

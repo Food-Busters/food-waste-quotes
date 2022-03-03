@@ -24,7 +24,7 @@ export default function App() {
               className="gh text-white fs-4 text-decoration-none"
               href="https://github.com/Food-Busters/food-waste-quotes"
               target="_blank"
-              rel="noopener"
+              rel="noreferrer"
             >
               GitHub
             </a>
