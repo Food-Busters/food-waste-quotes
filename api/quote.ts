@@ -3,6 +3,13 @@ import { VercelRequest, VercelResponse } from "@vercel/node";
 import { getQuote } from "../lib/getQuote";
 
 export default async (req: VercelRequest, res: VercelResponse) => {
+  // Remove this in the future when Food Busters Web Version is removed
+  res.setHeader("Access-Control-Allow-Origin", "*");
+  res.setHeader(
+    "Access-Control-Allow-Headers",
+    "Origin, X-Requested-With, Content-Type, Accept"
+  );
+
   const { percent, lang } = req.query;
 
   const perc = parseInt(percent as string);
